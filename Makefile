@@ -41,5 +41,5 @@ kubectl_kustomize_delete:
 kubectl_deploy: docker_build_local_push kubectl_apply
 .PHYONY: kubectl_deploy
 
-kubectl_remote_kustomize_deploy: docker_build_local_push_gh kubectl_kustomize
+kubectl_remote_kustomize_deploy: kubectl_kustomize
 .PHYONY: kubectl_remote_kustomize_deploy
