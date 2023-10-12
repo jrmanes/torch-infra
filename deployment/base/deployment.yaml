@@ -33,7 +33,7 @@ spec:
               fieldRef:
                 fieldPath: metadata.namespace
           - name: REDIS_HOST
-            value: redis
+            value: redis-torch
         ports:
         - containerPort: 8080
         securityContext:

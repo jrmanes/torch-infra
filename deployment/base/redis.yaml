@@ -4,11 +4,13 @@ kind: Service
 metadata:
   name: redis-torch
 spec:
-  ports:
-    - port: 6379
-      name: redis
   selector:
     app: redis
+  ports:
+  - name: redis
+    protocol: TCP
+    port: 6379
+    targetPort: redis
 ---
 apiVersion: apps/v1
 kind: StatefulSet
