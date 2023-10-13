@@ -29,8 +29,12 @@ kubectl_apply:
 	kubectl apply -f ./deployment/deployment.yaml
 .PHYONY: kubectl_apply
 
-kubectl_kustomize:
+kubectl_kustomize_all:
 	kubectl delete -k ./deployment/overlays/${LOCAL_DEV} ;\
+	kubectl apply -k ./deployment/overlays/${LOCAL_DEV}
+.PHYONY: kubectl_kustomize
+
+kubectl_kustomize:
 	kubectl apply -k ./deployment/overlays/${LOCAL_DEV}
 .PHYONY: kubectl_kustomize
 
