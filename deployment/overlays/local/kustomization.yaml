@@ -5,6 +5,7 @@ namespace: robusta-torch-1
 
 resources:
 - ../../base
+- secret.yaml
 
 images:
   - name: ghcr.io/jrmanes/torch
