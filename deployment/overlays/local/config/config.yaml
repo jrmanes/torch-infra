@@ -2,8 +2,8 @@ mutualPeers:
   - consensusNode: "consensus-validator-1"
   - peers:
       - nodeName: "consensus-full-1-0"
-        containerName: "consensus"
-        containerSetupName: "consensus-setup"
+        containerName: "consensus" # optional - default: consensus
+        containerSetupName: "consensus-setup" # optional - default: consensus-setup
         connectsAsEnvVar: true
         nodeType: "consensus"
         connectsTo:
@@ -22,8 +22,8 @@ mutualPeers:
           - "consensus-full-1"
   - peers:
       - nodeName: "da-bridge-2-0"
-        containerName: "da"
-        containerSetupName: "da-setup"
+        containerName: "da" # optional - default: da
+        containerSetupName: "da-setup" # optional - default: da-setup
         connectsAsEnvVar: true
         nodeType: "da"
         connectsTo:
@@ -34,6 +34,7 @@ mutualPeers:
         nodeType: "da"
         connectsTo:
           - "da-bridge-1-0"
+          - "da-bridge-2-0"
   - peers:
       - nodeName: "da-full-1-0"
         containerName: "da"
@@ -52,3 +53,12 @@ mutualPeers:
         nodeType: "da"
         connectsTo:
           - "da-bridge-1-0"
+          - "da-bridge-2-0"
+  - peers:
+      - nodeName: "da-full-3-0"
+        nodeType: "da"
+        connectsTo:
+          - "/ip4/100.64.5.103/tcp/2121/p2p/12D3KooWNFpkX9fuo3GQ38FaVKdAZcTQsLr1BNE5DTHGjv2fjEHG,/ip4/100.64.5.15/tcp/2121/p2p/12D3KooWL8cqu7dFyodQNLWgJLuCzsQiv617SN9WDVX2GiZnjmeE"
+          # - "/dns/da-bridge-1/tcp/2121/p2p/12D3KooWKsHCeUVJqJwymyi3bGt1Gwbn5uUUFi2N9WQ7G6rUSXig,/dns/da-bridge-2/tcp/2121/p2p/12D3KooWA26WDUmejZzU6XHc4C7KQNSWaEApe5BEyXFNchAqrxhA"
+          #- "/dns/da-bridge-1/tcp/2121/p2p/12D3KooWKsHCeUVJqJwymyi3bGt1Gwbn5uUUFi2N9WQ7G6rUSXig"
+          #- "/dns/da-bridge-2/tcp/2121/p2p/12D3KooWA26WDUmejZzU6XHc4C7KQNSWaEApe5BEyXFNchAqrxhA"
