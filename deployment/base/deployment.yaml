@@ -51,8 +51,8 @@ spec:
             memory: "50Mi"
             cpu: "50m"
           limits:
-            memory: "250Mi"
-            cpu: "150m"
+            memory: "450Mi"
+            cpu: "350m"
       - name: otel-agent
         image: otel/opentelemetry-collector-contrib:SET-IT
         imagePullPolicy: IfNotPresent
