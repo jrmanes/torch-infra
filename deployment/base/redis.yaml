@@ -1,5 +1,18 @@
 ---
 apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: redis-torch-data-pvc
+  labels:
+    app: redis
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: v1
 kind: Service
 metadata:
   name: redis-torch
@@ -35,8 +48,15 @@ spec:
               cpu: 50m
               memory: 50Mi
             limits:
-              cpu: 750m
-              memory: 100Mi
+              cpu: 150m
+              memory: 200Mi
           ports:
             - containerPort: 6379
               name: redis
+          volumeMounts:
+            - mountPath: /data
+              name: redis-torch-data-volume
+      volumes:
+        - name: redis-torch-data-volume
+          persistentVolumeClaim:
+            claimName: redis-torch-data-pvc
